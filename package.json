@@ -4,6 +4,7 @@
   "description": "Super Toolbelt helpers for class name copy and quick open.",
   "version": "0.0.5",
   "publisher": "superfiliate",
+  "icon": "assets/superfiliate.png",
   "license": "MIT",
   "repository": {
     "type": "git",
