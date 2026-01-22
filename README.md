@@ -12,8 +12,8 @@
 You can disable specific features in your settings:
 ```json
 {
-  "superToolbelt.enableClassCopy": false,
-  "superToolbelt.enableQuickOpenFromClipboard": false
+  "superToolbelt.enableRubyClassCopy": false,
+  "superToolbelt.enableRubyQuickOpenFromClipboard": false
 }
 ```
 

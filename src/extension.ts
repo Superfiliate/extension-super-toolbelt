@@ -19,8 +19,8 @@ type StackEntry = {
 const QUICK_OPEN_DEFAULT_COMMAND = "default:workbench.action.quickOpen";
 const QUICK_OPEN_COMMAND = "workbench.action.quickOpen";
 const CONFIG_SECTION = "superToolbelt";
-const CLASS_COPY_SETTING = "enableClassCopy";
-const QUICK_OPEN_SETTING = "enableQuickOpenFromClipboard";
+const CLASS_COPY_SETTING = "enableRubyClassCopy";
+const QUICK_OPEN_SETTING = "enableRubyQuickOpenFromClipboard";
 
 export function activate(context: vscode.ExtensionContext) {
   const provider = new RubyClassCodeLensProvider();

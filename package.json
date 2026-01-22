@@ -34,12 +34,12 @@
     "configuration": {
       "title": "Super Toolbelt",
       "properties": {
-        "superToolbelt.enableClassCopy": {
+        "superToolbelt.enableRubyClassCopy": {
           "type": "boolean",
           "default": true,
           "description": "Enable inline copy hint for Ruby class declarations."
         },
-        "superToolbelt.enableQuickOpenFromClipboard": {
+        "superToolbelt.enableRubyQuickOpenFromClipboard": {
           "type": "boolean",
           "default": true,
           "description": "Enable Quick Open prefill from clipboard Ruby class names."
