@@ -61,6 +61,10 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         await vscode.env.clipboard.writeText(qualifiedName);
+        void vscode.window.setStatusBarMessage(
+          `Copied: ${qualifiedName}`,
+          2000
+        );
       }
     )
   );
@@ -124,6 +128,10 @@ async function quickOpenFromClipboard(): Promise<void> {
       .join("/");
 
     await executeQuickOpen(query);
+    void vscode.window.setStatusBarMessage(
+      `Prefilled Quick Open with Ruby class "${sanitized}".`,
+      2000
+    );
     return;
   }
 
