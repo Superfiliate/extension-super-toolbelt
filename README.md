@@ -1,4 +1,4 @@
-# Super Ruby Helpers (VSCode/Cursor)
+# Super Toolbelt (VSCode/Cursor)
 
 ## Features
 - Inline copy hint on Ruby `class` lines that copies the fully qualified name.
@@ -12,8 +12,8 @@
 You can disable specific features in your settings:
 ```json
 {
-  "superRubyHelpers.enableClassCopy": false,
-  "superRubyHelpers.enableQuickOpenFromClipboard": false
+  "superToolbelt.enableClassCopy": false,
+  "superToolbelt.enableQuickOpenFromClipboard": false
 }
 ```
 
@@ -35,7 +35,7 @@ You can disable specific features in your settings:
    - `npx vsce package`
 2. Install in VSCode/Cursor:
    - Command Palette: "Extensions: Install from VSIX..."
-   - Or CLI: `cursor --install-extension ./super-ruby-helpers-0.0.1.vsix`
+   - Or CLI: `cursor --install-extension ./super-toolbelt-0.0.1.vsix`
 
 ## Publishing
 1. Update `publisher` in `package.json` to your Marketplace publisher ID.

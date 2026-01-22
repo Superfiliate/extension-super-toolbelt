@@ -18,7 +18,7 @@ type StackEntry = {
 
 const QUICK_OPEN_DEFAULT_COMMAND = "default:workbench.action.quickOpen";
 const QUICK_OPEN_COMMAND = "workbench.action.quickOpen";
-const CONFIG_SECTION = "superRubyHelpers";
+const CONFIG_SECTION = "superToolbelt";
 const CLASS_COPY_SETTING = "enableClassCopy";
 const QUICK_OPEN_SETTING = "enableQuickOpenFromClipboard";
 
@@ -50,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "superRubyHelpers.copyQualifiedClassName",
+      "superToolbelt.copyQualifiedClassName",
       async (qualifiedName: string) => {
         if (!isClassCopyEnabled()) {
           return;
@@ -67,7 +67,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "superRubyHelpers.quickOpenFromClipboard",
+      "superToolbelt.quickOpenFromClipboard",
       async () => {
         if (!isQuickOpenEnabled()) {
           await executeQuickOpen("");
@@ -106,7 +106,7 @@ class RubyClassCodeLensProvider implements vscode.CodeLensProvider {
       const range = new vscode.Range(line, 0, line, 0);
       return new vscode.CodeLens(range, {
         title: "$(copy)",
-        command: "superRubyHelpers.copyQualifiedClassName",
+        command: "superToolbelt.copyQualifiedClassName",
         arguments: [qualifiedName],
       });
     });

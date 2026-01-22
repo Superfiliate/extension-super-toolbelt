@@ -1,12 +1,12 @@
 {
-  "name": "super-ruby-helpers",
-  "displayName": "Super Ruby Helpers",
-  "description": "Supercharged Ruby helpers for class name copy and quick open.",
+  "name": "super-toolbelt",
+  "displayName": "Super Toolbelt",
+  "description": "Super Toolbelt helpers for class name copy and quick open.",
   "version": "0.0.1",
   "publisher": "superfiliate",
   "repository": {
     "type": "git",
-    "url": "https://github.com/superfiliate/extension-super-ruby-helpers"
+    "url": "https://github.com/superfiliate/extension-super-toolbelt"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -17,29 +17,29 @@
   "main": "./out/extension.js",
   "activationEvents": [
     "onLanguage:ruby",
-    "onCommand:superRubyHelpers.copyQualifiedClassName",
-    "onCommand:superRubyHelpers.quickOpenFromClipboard"
+    "onCommand:superToolbelt.copyQualifiedClassName",
+    "onCommand:superToolbelt.quickOpenFromClipboard"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "superRubyHelpers.copyQualifiedClassName",
+        "command": "superToolbelt.copyQualifiedClassName",
         "title": "Ruby: Copy Qualified Class Name"
       },
       {
-        "command": "superRubyHelpers.quickOpenFromClipboard",
+        "command": "superToolbelt.quickOpenFromClipboard",
         "title": "Ruby: Quick Open From Clipboard"
       }
     ],
     "configuration": {
-      "title": "Super Ruby Helpers",
+      "title": "Super Toolbelt",
       "properties": {
-        "superRubyHelpers.enableClassCopy": {
+        "superToolbelt.enableClassCopy": {
           "type": "boolean",
           "default": true,
           "description": "Enable inline copy hint for Ruby class declarations."
         },
-        "superRubyHelpers.enableQuickOpenFromClipboard": {
+        "superToolbelt.enableQuickOpenFromClipboard": {
           "type": "boolean",
           "default": true,
           "description": "Enable Quick Open prefill from clipboard Ruby class names."
@@ -48,7 +48,7 @@
     },
     "keybindings": [
       {
-        "command": "superRubyHelpers.quickOpenFromClipboard",
+        "command": "superToolbelt.quickOpenFromClipboard",
         "key": "ctrl+p",
         "mac": "cmd+p",
         "when": "!inQuickOpen && !inQuickInput"
