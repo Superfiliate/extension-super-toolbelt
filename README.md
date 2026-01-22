@@ -4,6 +4,7 @@
 
 ## Features
 - Inline copy hint on Ruby `class` lines that copies the fully qualified name.
+  - So you don't need to manually merge the modules names to call something on the console
 - `cmd+p` / `ctrl+p` intercepts Quick Open and uses the clipboard if it contains a Ruby class name, formatting it to a searchable format.
   - `::MyModule::OtherModule::ClassName` becomes `my_module/other_module/class_name`
 
