@@ -1,0 +1,53 @@
+{
+  "name": "super-ruby-helpers",
+  "displayName": "Super Ruby Helpers",
+  "description": "Supercharged Ruby helpers for class name copy and quick open.",
+  "version": "0.0.1",
+  "publisher": "superfiliate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superfiliate/extension-super-ruby-helpers"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:ruby",
+    "onCommand:rubyHelpers.copyQualifiedClassName",
+    "onCommand:rubyHelpers.quickOpenFromClipboard"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "rubyHelpers.copyQualifiedClassName",
+        "title": "Ruby: Copy Qualified Class Name"
+      },
+      {
+        "command": "rubyHelpers.quickOpenFromClipboard",
+        "title": "Ruby: Quick Open From Clipboard"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "rubyHelpers.quickOpenFromClipboard",
+        "key": "ctrl+p",
+        "mac": "cmd+p",
+        "when": "!inQuickOpen && !inQuickInput"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.5"
+  }
+}
