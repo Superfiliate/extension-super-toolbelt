@@ -43,3 +43,13 @@ You can disable specific features in your settings:
    - `npx vsce publish`
 3. Optional: publish to Open VSX for wider compatibility:
    - `npx ovsx publish`
+
+## CI Publishing (OpenVSX)
+Publishing to OpenVSX runs automatically on pushes to `main` via GitHub Actions.
+
+Setup:
+1. Create an OpenVSX publisher and access token.
+2. Add a repository secret named `OPEN_VSX_TOKEN` with that token.
+
+Notes:
+- The workflow only runs on `push` to `main`, so PRs do not receive secrets.
