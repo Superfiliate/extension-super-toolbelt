@@ -17,23 +17,38 @@
   "main": "./out/extension.js",
   "activationEvents": [
     "onLanguage:ruby",
-    "onCommand:rubyHelpers.copyQualifiedClassName",
-    "onCommand:rubyHelpers.quickOpenFromClipboard"
+    "onCommand:superRubyHelpers.copyQualifiedClassName",
+    "onCommand:superRubyHelpers.quickOpenFromClipboard"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "rubyHelpers.copyQualifiedClassName",
+        "command": "superRubyHelpers.copyQualifiedClassName",
         "title": "Ruby: Copy Qualified Class Name"
       },
       {
-        "command": "rubyHelpers.quickOpenFromClipboard",
+        "command": "superRubyHelpers.quickOpenFromClipboard",
         "title": "Ruby: Quick Open From Clipboard"
       }
     ],
+    "configuration": {
+      "title": "Super Ruby Helpers",
+      "properties": {
+        "superRubyHelpers.enableClassCopy": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable inline copy hint for Ruby class declarations."
+        },
+        "superRubyHelpers.enableQuickOpenFromClipboard": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Quick Open prefill from clipboard Ruby class names."
+        }
+      }
+    },
     "keybindings": [
       {
-        "command": "rubyHelpers.quickOpenFromClipboard",
+        "command": "superRubyHelpers.quickOpenFromClipboard",
         "key": "ctrl+p",
         "mac": "cmd+p",
         "when": "!inQuickOpen && !inQuickInput"

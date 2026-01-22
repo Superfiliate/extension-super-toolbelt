@@ -8,6 +8,15 @@
 ![Class copy hint](assets/class-copy.png)
 ![Quick Open prefill](assets/quick-open-prefill.png)
 
+## Configuration
+You can disable specific features in your settings:
+```json
+{
+  "superRubyHelpers.enableClassCopy": false,
+  "superRubyHelpers.enableQuickOpenFromClipboard": false
+}
+```
+
 ## Local QA
 1. From the repo root, install deps:
    - `pnpm install`

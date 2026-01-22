@@ -18,6 +18,9 @@ type StackEntry = {
 
 const QUICK_OPEN_DEFAULT_COMMAND = "default:workbench.action.quickOpen";
 const QUICK_OPEN_COMMAND = "workbench.action.quickOpen";
+const CONFIG_SECTION = "superRubyHelpers";
+const CLASS_COPY_SETTING = "enableClassCopy";
+const QUICK_OPEN_SETTING = "enableQuickOpenFromClipboard";
 
 export function activate(context: vscode.ExtensionContext) {
   const provider = new RubyClassCodeLensProvider();
@@ -34,11 +37,25 @@ export function activate(context: vscode.ExtensionContext) {
       }
     })
   );
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration((event) => {
+      if (
+        event.affectsConfiguration(`${CONFIG_SECTION}.${CLASS_COPY_SETTING}`) ||
+        event.affectsConfiguration(`${CONFIG_SECTION}.${QUICK_OPEN_SETTING}`)
+      ) {
+        provider.refresh();
+      }
+    })
+  );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "rubyHelpers.copyQualifiedClassName",
+      "superRubyHelpers.copyQualifiedClassName",
       async (qualifiedName: string) => {
+        if (!isClassCopyEnabled()) {
+          return;
+        }
+
         if (!qualifiedName) {
           return;
         }
@@ -50,8 +67,13 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "rubyHelpers.quickOpenFromClipboard",
+      "superRubyHelpers.quickOpenFromClipboard",
       async () => {
+        if (!isQuickOpenEnabled()) {
+          await executeQuickOpen("");
+          return;
+        }
+
         await quickOpenFromClipboard();
       }
     )
@@ -76,11 +98,15 @@ class RubyClassCodeLensProvider implements vscode.CodeLensProvider {
       return [];
     }
 
+    if (!isClassCopyEnabled()) {
+      return [];
+    }
+
     return collectClassEntries(document).map(({ line, qualifiedName }) => {
       const range = new vscode.Range(line, 0, line, 0);
       return new vscode.CodeLens(range, {
         title: "$(copy)",
-        command: "rubyHelpers.copyQualifiedClassName",
+        command: "superRubyHelpers.copyQualifiedClassName",
         arguments: [qualifiedName],
       });
     });
@@ -102,6 +128,16 @@ async function quickOpenFromClipboard(): Promise<void> {
   }
 
   await executeQuickOpen("");
+}
+
+function isClassCopyEnabled(): boolean {
+  const config = vscode.workspace.getConfiguration(CONFIG_SECTION);
+  return config.get<boolean>(CLASS_COPY_SETTING, true);
+}
+
+function isQuickOpenEnabled(): boolean {
+  const config = vscode.workspace.getConfiguration(CONFIG_SECTION);
+  return config.get<boolean>(QUICK_OPEN_SETTING, true);
 }
 
 function stripStringsAndComments(line: string): string {
