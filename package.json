@@ -2,7 +2,7 @@
   "name": "super-toolbelt",
   "displayName": "Super Toolbelt",
   "description": "Super Toolbelt helpers for class name copy and quick open.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "superfiliate",
   "repository": {
     "type": "git",
