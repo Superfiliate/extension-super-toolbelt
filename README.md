@@ -1,5 +1,7 @@
 # Super Toolbelt (VSCode/Cursor)
 
+[Open VSX listing](https://open-vsx.org/extension/superfiliate/super-toolbelt)
+
 ## Features
 - Inline copy hint on Ruby `class` lines that copies the fully qualified name.
 - `cmd+p` / `ctrl+p` intercepts Quick Open and uses the clipboard if it contains a Ruby class name, formatting it to a searchable format.
